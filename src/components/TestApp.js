@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const SignUp = (props) => {
+const TestApp = (props) => {
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
@@ -82,4 +82,4 @@ const SignUp = (props) => {
 
 }
 
-export default SignUp;
+export default TestApp;
