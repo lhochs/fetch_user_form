@@ -11,7 +11,7 @@ const SignUp = (props) => {
     const [ stateUpdate, setStateUpdate ] = useState("");
     const [ hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
-
+    // create axios get request to request data from given endpoint
     useEffect(()=>{
         axios
         .get("https://frontend-take-home.fetchrewards.com/form")
@@ -21,6 +21,7 @@ const SignUp = (props) => {
         })
     }, [])
 
+    // send axios post request to same endpoint if there are no errors
     const createUser = (e) => {
         e.preventDefault();
         axios.post("https://frontend-take-home.fetchrewards.com/form", {
@@ -51,7 +52,7 @@ const SignUp = (props) => {
                         {
                             hasBeenSubmitted ? 
                             <h5 style={{color: "green"}}>Thank you for signing up!</h5> :
-                            <h5>Please enter your details to sign up :)</h5>
+                            <h5 style={{color: "grey"}}>Please enter your details to sign up :)</h5>
                         }
                     <div className = "row mb-3">
                         <label className = "col-sm-3 col-form-label">Full Name: </label>
@@ -94,7 +95,11 @@ const SignUp = (props) => {
                         </div>
                     </div>
                     <div className="">
+                        {
+                            hasBeenSubmitted ? 
+                            <input className="btn btn-secondary" onClick={() => window.location.reload(true)} value="Add a New User"/> :
                             <input className="btn btn-secondary" type="submit" value="Create User"/> 
+                        }
                     </div>
                 </div>
             </div>
