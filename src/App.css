@@ -1,38 +1,50 @@
-/* .App {
-  text-align: center;
-} */
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background{
+  background-image: linear-gradient(0.25turn, rgba(81, 160, 194, 0.70), rgba(235, 248, 225,0.70), rgba(246, 157, 60,0.70)), url("./pexels-benjamin-suter-2700536.jpg");
+  background-position: 10% 30%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  padding: 3.5% 17%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.container-img{
   align-items: center;
+  width: 65vw;
+  height: 87vh;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 15px;
+  background-color: whitesmoke;
 }
 
-.App-link {
-  color: #61dafb;
+.img{
+  width: 40%;
+  height: 100%;
+  background-position: 20% 30%;
+  background-size: 130vh;
+  background-image: url("./pexels-benjamin-suter-2700536.jpg");
+  border-radius: 15px 0px 0px 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container{
+  margin: 20px;
+  padding: 3% 2% 3% 2%;
+  height: 65%;
+  width: 60%;
+  /* border: 2pt dotted peru; */
 }
+
+.container h1, h5{
+  text-align: center;
+}
+
+.container h5{
+  margin-bottom: 3%;
+}
+
+

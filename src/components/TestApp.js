@@ -42,7 +42,8 @@ const TestApp = (props) => {
     };
 
     return (
-    <form onSubmit = { createUser }>
+    <div className = "background">
+        <form onSubmit = { createUser }>
         {
             hasBeenSubmitted ? 
             <h3>Thank you for submitting the form!</h3> :
@@ -78,6 +79,7 @@ const TestApp = (props) => {
         </div>
         <input type="submit" value="Create User"/>
     </form>
+    </div>
     );
 
 }
