@@ -14,7 +14,7 @@ This project aims to create a webpage with a user creation form that takes in re
 
 3. Run application:
 
-`npm install\`
+`npm install`\
 `npm start`
 
 ### Deployed website
