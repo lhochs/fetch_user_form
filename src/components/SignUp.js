@@ -6,10 +6,9 @@ const SignUp = (props) => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ occupation, setOccupation ] = useState([]);
-    const [ occupationUpdate, setOccupationUpdate ] = useState("")
+    const [ occupationUpdate, setOccupationUpdate ] = useState("");
     const [ state, setState ] = useState([]);
-    const [ stateUpdate, setStateUpdate ] = useState("")
-    // const [errors, setErrors] = useState({});
+    const [ stateUpdate, setStateUpdate ] = useState("");
     const [ hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
 
@@ -51,32 +50,32 @@ const SignUp = (props) => {
                     <h1>Register</h1>
                         {
                             hasBeenSubmitted ? 
-                            <h5>Thank you for signing up!</h5> :
+                            <h5 style={{color: "green"}}>Thank you for signing up!</h5> :
                             <h5>Please enter your details to sign up :)</h5>
                         }
                     <div className = "row mb-3">
                         <label className = "col-sm-3 col-form-label">Full Name: </label>
                         <div className="col-sm-9">
-                            <input type = "text" className="form-control" onChange={ (e) => setName(e.target.value)}/> 
+                            <input type = "text" className="form-control" required onChange={ (e) => setName(e.target.value) }/> 
                         </div>
                     </div>
                     <div className = "row mb-3">
                         <label className = "col-sm-3 col-form-label">Email: </label>
                         <div className="col-sm-9">
-                            <input type = "text" className="form-control" onChange={ (e) => setEmail(e.target.value)}/> 
+                            <input type = "text" className="form-control" required onChange={ (e) => setEmail(e.target.value)}/> 
                         </div>
                     </div>
                     <div className = "row mb-3">
                         <label className = "col-sm-3 col-form-label">Password: </label>
                         <div className="col-sm-9">
-                            <input type = "text" className="form-control" onChange={ (e) => setPassword(e.target.value)}/> 
+                            <input type = "text" className="form-control"  required onChange={ (e) => setPassword(e.target.value)}/> 
                         </div>
                     </div>
                     <div className = "row mb-3">
                         <label className = "col-sm-3 col-form-label">Occupation: </label>
                         <div className="col-sm-9">
-                            <select className="form-select" onChange={ (e) => setOccupationUpdate(e.target.value)} >
-                                <option>Select Occupation</option>
+                            <select className="form-select" required onChange={ (e) => setOccupationUpdate(e.target.value)}>
+                                <option selected disabled value="">Select Occupation</option>
                                 {occupation.map((job, index) => (
                                     <option key={index}>{job}</option>
                                     ))}
@@ -86,8 +85,8 @@ const SignUp = (props) => {
                     <div className = "row mb-3">
                         <label className = "col-sm-3 col-form-label">State: </label>
                         <div className="col-sm-9">
-                            <select className="form-select" onChange={ (e) => setStateUpdate(e.target.value)}>
-                                <option>Select State</option>
+                            <select className="form-select" required onChange={ (e) => setStateUpdate(e.target.value) }>
+                                <option selected disabled value="">Select State</option>
                                 {state.map((states) => (
                                     <option key={states.abbreviation}>{states.name}</option>
                                     ))}
@@ -95,7 +94,7 @@ const SignUp = (props) => {
                         </div>
                     </div>
                     <div className="">
-                        <input type="submit" value="Create User"/>
+                            <input className="btn btn-secondary" type="submit" value="Create User"/> 
                     </div>
                 </div>
             </div>
