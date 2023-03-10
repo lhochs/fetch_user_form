@@ -6,16 +6,16 @@ This project aims to create a webpage with a user creation form that takes in re
 
 1. Clone the repository to your local machine using the following command:
 
-```git clone https://github.com/lhochs/fetch_user_form.git```
+`git clone https://github.com/lhochs/fetch_user_form.git`
 
 2. Navigate to the project directory:
 
-```cd ~/fetch_user_form```
+`cd ~/fetch_user_form`
 
 3. Run application:
 
-`npm install\
-npm start`
+`npm install\`
+`npm start`
 
 ### Deployed website
 
