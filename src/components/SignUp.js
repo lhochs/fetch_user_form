@@ -54,27 +54,33 @@ const SignUp = (props) => {
                             <h5 style={{color: "green"}}>Thank you for signing up!</h5> :
                             <h5 style={{color: "grey"}}>Please enter your details to sign up :)</h5>
                         }
-                    <div className = "row mb-3">
-                        <label className = "col-sm-3 col-form-label">Full Name: </label>
-                        <div className="col-sm-9">
-                            <input type = "text" className="form-control" required onChange={ (e) => setName(e.target.value) }/> 
+                    <div className = "row mb-4">
+                        <label className = "col-sm-5 col-form-label">Full Name: </label>
+                        <div className="col-sm-7">
+                            <input type = "text" className="form-control" placeholder="Lily Ochs" required onChange={ (e) => setName(e.target.value) }/> 
                         </div>
                     </div>
-                    <div className = "row mb-3">
-                        <label className = "col-sm-3 col-form-label">Email: </label>
-                        <div className="col-sm-9">
-                            <input type = "text" className="form-control" required onChange={ (e) => setEmail(e.target.value)}/> 
+                    <div className = "row mb-4">
+                        <label className = "col-sm-5 col-form-label">Email: </label>
+                        <div className="col-sm-7">
+                            <input type = "text" className="form-control" placeholder="lilyochs@yahoo.com" required onChange={ (e) => setEmail(e.target.value)}/> 
                         </div>
                     </div>
-                    <div className = "row mb-3">
-                        <label className = "col-sm-3 col-form-label">Password: </label>
-                        <div className="col-sm-9">
-                            <input type = "text" className="form-control"  required onChange={ (e) => setPassword(e.target.value)}/> 
+                    <div className = "row mb-4">
+                        <label className = "col-sm-5 col-form-label">Password: </label>
+                        <div className="col-sm-7">
+                            <input type = "password" className="form-control"  required onChange={ (e) => setPassword(e.target.value)}/> 
                         </div>
                     </div>
-                    <div className = "row mb-3">
-                        <label className = "col-sm-3 col-form-label">Occupation: </label>
-                        <div className="col-sm-9">
+                    {/* <div className = "row mb-4">
+                        <label className = "col-sm-5 col-form-label">Confirm Password: </label>
+                        <div className="col-sm-7">
+                            <input type = "password" className="form-control"  required/>
+                        </div>
+                    </div> */}
+                    <div className = "row mb-4">
+                        <label className = "col-sm-5 col-form-label">Occupation: </label>
+                        <div className="col-sm-7">
                             <select className="form-select" required onChange={ (e) => setOccupationUpdate(e.target.value)}>
                                 <option selected disabled value="">Select Occupation</option>
                                 {occupation.map((job, index) => (
@@ -83,9 +89,9 @@ const SignUp = (props) => {
                             </select> 
                         </div>
                     </div>
-                    <div className = "row mb-3">
-                        <label className = "col-sm-3 col-form-label">State: </label>
-                        <div className="col-sm-9">
+                    <div className = "row mb-4">
+                        <label className = "col-sm-5 col-form-label">State: </label>
+                        <div className="col-sm-7">
                             <select className="form-select" required onChange={ (e) => setStateUpdate(e.target.value) }>
                                 <option selected disabled value="">Select State</option>
                                 {state.map((states) => (
@@ -94,6 +100,7 @@ const SignUp = (props) => {
                             </select> 
                         </div>
                     </div>
+                    <p className = "required">These fields are required</p>
                     <div className="">
                         {
                             hasBeenSubmitted ? 
