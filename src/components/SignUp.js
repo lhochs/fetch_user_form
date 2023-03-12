@@ -77,7 +77,13 @@ const SignUp = (props) => {
                     <div className = "row mb-4">
                         <label className = "col-sm-5 col-form-label">Email: </label>
                         <div className="col-sm-7">
-                            <input type = "text" className="form-control" placeholder="lilyochs@yahoo.com" required onChange={ (e) => setEmail(e.target.value)}/> 
+                            <input type = "text" className="form-control" placeholder="lilyochs@yahoo.com" ref={register({
+    required: "Required",
+    pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: "invalid email address"
+    }
+    })} required onChange={ (e) => setEmail(e.target.value)}/> 
                         </div>
                     </div>
                     <div className = "row mb-4">
