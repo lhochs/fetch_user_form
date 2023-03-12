@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+export const FORM_INFO_URL = "https://frontend-take-home.fetchrewards.com/form"
+
 const SignUp = (props) => {
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -14,7 +16,7 @@ const SignUp = (props) => {
     // create axios get request to request data from given endpoint
     useEffect(()=>{
         axios
-        .get("https://frontend-take-home.fetchrewards.com/form")
+        .get(FORM_INFO_URL)
         .then((response) => {
             setOccupation(response.data.occupations)
             setState(response.data.states)
@@ -39,11 +41,12 @@ const SignUp = (props) => {
             .catch(err => {
                 console.log(err.response.data);
             });
+        e.target.reset();
     };
 
     return (
     <div className = "background">
-        <form onSubmit = { createUser }>
+        <form id = "newUser" onSubmit = { createUser }>
             <div className="container-img">
                 <div className="img">
                 </div>
