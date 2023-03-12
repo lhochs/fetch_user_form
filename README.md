@@ -2,7 +2,7 @@
 
 This project aims to create a webpage with a user creation form that takes in required inputs such as full name, email, password, occupation, and state.
 
-![screenshot of user sign up form](src/user_form_screenshot.png)
+![screenshot of user sign up form](src/resources/user_form_screenshot.png)
 
 ### Repo Installation
 
