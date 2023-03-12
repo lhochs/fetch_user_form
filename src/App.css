@@ -3,7 +3,7 @@
 }
 
 .background{
-  background-image: linear-gradient(0.25turn, rgba(81, 160, 194, 0.70), rgba(235, 248, 225,0.70), rgba(246, 157, 60,0.70)), url("./pexels-benjamin-suter-2700536.jpg");
+  background-image: linear-gradient(0.25turn, rgba(81, 160, 194, 0.70), rgba(235, 248, 225,0.70), rgba(246, 157, 60,0.70)), url("./resources/pexels-benjamin-suter-2700536.jpg");
   background-position: 10% 30%;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@
   height: 100%;
   background-position: 20% 30%;
   background-size: 130vh;
-  background-image: url("./pexels-benjamin-suter-2700536.jpg");
+  background-image: url("./resources/pexels-benjamin-suter-2700536.jpg");
   border-radius: 12px 0px 0px 12px;
 }
 
