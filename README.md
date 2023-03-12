@@ -2,6 +2,8 @@
 
 This project aims to create a webpage with a user creation form that takes in required inputs such as full name, email, password, occupation, and state.
 
+![screenshot of user sign up form](src/user_form_screenshot.png)
+
 ### Repo Installation
 
 1. Clone the repository to your local machine using the following command:
