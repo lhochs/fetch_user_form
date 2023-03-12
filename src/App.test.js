@@ -1,24 +1,30 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import React from 'react';
+import axios from 'axios';
 
-import axios, { AxiosRequestConfig } from 'axios';
-import AxiosMockAdapter from 'axios-mock-adapter';
-const axiosMockInstance = axios.create();
-export const axiosMockAdapterInstance= new AxiosMockAdapter(axiosMockInstance, { delayResponse: 0 });
 
-mock
-   .onGet('')
-   .reply(() => {
-    return {
-     id: '5e8891ab188cd28',
-     avatar: '/static/mock-images/avatars/jane.png',
-     bio: 'Product Designer',
-     email: 'jane@test.com',
-     name: 'Jane'
-    };
-});
 
-test('renders learn react link', () => {
-  render(<App />);
+
+describe('Unit tests', () => {
+  it("renders the submit button", () => {
+    render(<App />);
+    const linkElement = screen.getByText("Create User");
+    expect(linkElement).toBeInTheDocument();
+  });
   
+
+  describe('http requests work', () => {
+    jest.mock('axios');
+    it('sets occuption and state to response',() => {
+      axios.get.mockResolvedValue({ 
+        occupations: ['Mock occuptation'],
+        states: ['Sample State']
+      });
+
+      render(<App/>);
+    });
+
+  });
+
 });

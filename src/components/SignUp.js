@@ -15,34 +15,45 @@ const SignUp = (props) => {
 
     // create axios get request to request data from given endpoint
     useEffect(()=>{
-        axios
-        .get(FORM_INFO_URL)
-        .then((response) => {
-            setOccupation(response.data.occupations)
-            setState(response.data.states)
-        })
+       populateFormData();
     }, [])
 
     // send axios post request to same endpoint if there are no errors
     const createUser = (e) => {
         e.preventDefault();
-        axios.post("https://frontend-take-home.fetchrewards.com/form", {
-            name: name, 
-            email: email,
-            password: password,
-            occupation: occupationUpdate,
-            state: stateUpdate,
-        })
-            .then((res)=>{
-                console.log(res);
-                console.log(res.data);
-                setHasBeenSubmitted( true );
-            })
-            .catch(err => {
-                console.log(err.response.data);
-            });
+        submitFormData();
         e.target.reset();
     };
+
+    async function populateFormData() {
+        try {
+        const response = await axios
+        .get(FORM_INFO_URL);
+        setOccupation(response.data.occupations);
+        setState(response.data.states);
+        } catch (e) {
+
+           // Set error message in the form;
+        }
+    }
+    
+    async function submitFormData() {
+        try {
+            const res = await axios.post("https://frontend-take-home.fetchrewards.com/form", {
+                name: name, 
+                email: email,
+                password: password,
+                occupation: occupationUpdate,
+                state: stateUpdate,
+            });
+
+             console.log(res);
+                console.log(res.data);
+                setHasBeenSubmitted( true );
+        } catch (err) {
+            console.log(err.response.data);
+        }
+    }
 
     return (
     <div className = "background">
@@ -78,8 +89,8 @@ const SignUp = (props) => {
                     <div className = "row mb-4">
                         <label className = "col-sm-5 col-form-label">Occupation: </label>
                         <div className="col-sm-7">
-                            <select className="form-select" required onChange={ (e) => setOccupationUpdate(e.target.value)}>
-                                <option selected disabled value="">Select Occupation</option>
+                            <select className="form-select" defaultValue="Select Occupation" required onChange={ (e) => setOccupationUpdate(e.target.value)}>
+                                <option value = "">Select Occupation</option>
                                 {occupation.map((job, index) => (
                                     <option key={index}>{job}</option>
                                     ))}
@@ -89,8 +100,8 @@ const SignUp = (props) => {
                     <div className = "row mb-4">
                         <label className = "col-sm-5 col-form-label">State: </label>
                         <div className="col-sm-7">
-                            <select className="form-select" required onChange={ (e) => setStateUpdate(e.target.value) }>
-                                <option selected disabled value="">Select State</option>
+                            <select className="form-select" defaultValue="Select State" required onChange={ (e) => setStateUpdate(e.target.value) }>
+                                <option value="">Select State</option>
                                 {state.map((states) => (
                                     <option key={states.abbreviation}>{states.name}</option>
                                     ))}
