@@ -71,3 +71,10 @@ label::after{
   color: rgba(0, 0, 0, 0.30);
 }
 
+.error{
+  color: red;
+}
+
+.success{
+  color: green
+}

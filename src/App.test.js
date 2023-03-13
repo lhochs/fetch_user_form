@@ -28,7 +28,8 @@ describe('Unit tests', () => {
   describe('http requests work', () => {
     jest.mock('axios');
     it('sets occuption and state to response',() => {
-      axios.get.({ 
+      axios.get(
+        { 
         occupations: ['Mock occuptation'],
         states: ['Sample State']
       });

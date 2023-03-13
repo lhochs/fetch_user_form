@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import fetchData from '../resources/fetchData';
 
 export const FORM_INFO_URL = "https://frontend-take-home.fetchrewards.com/form"
 
 const SignUp = (props) => {
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
+    const [ error, setError ] = useState(null);
+    const [ isValid, setIsValid ] = useState(false);
     const [ password, setPassword ] = useState("");
     const [ occupation, setOccupation ] = useState([]);
     const [ occupationUpdate, setOccupationUpdate ] = useState("");
@@ -15,7 +18,7 @@ const SignUp = (props) => {
 
     // create axios get request to request data from given endpoint
     useEffect(()=>{
-       populateFormData();
+    populateFormData();
     }, [])
 
     // send axios post request to same endpoint if there are no errors
@@ -23,7 +26,9 @@ const SignUp = (props) => {
         e.preventDefault();
         submitFormData();
         e.target.reset();
+        setEmail("");
     };
+    
 
     async function populateFormData() {
         try {
@@ -32,8 +37,20 @@ const SignUp = (props) => {
         setOccupation(response.data.occupations);
         setState(response.data.states);
         } catch (e) {
-
-           // Set error message in the form;
+            console.error(e);
+            console.error("ERR_NETWORK: please check your connection before proceeding");
+        }
+        try { 
+            await fetch("../resources/fetchData.js")
+            .then(
+                // console.log(fetchData[0].occupations),
+                setOccupation(fetchData[0].occupations),
+                // console.log(fetchData[0].states),
+                setState(fetchData[0].states),)
+            .catch((err) => 
+            console.log(err))
+        } catch (e) {
+            console.error(e)
         }
     }
     
@@ -55,6 +72,21 @@ const SignUp = (props) => {
         }
     }
 
+    function isValidEmail(email){
+        return /\S+@\S+\.\S+/.test(email);
+    }
+
+    const emailValidation = (e) => {
+        if (!isValidEmail(e.target.value)) {
+            setError("Not a valid email");
+            setIsValid(false);
+        } else {
+            setError(null);
+            setIsValid(true);
+        }
+        setEmail(e.target.value)
+    };
+    
     return (
     <div className = "background">
         <form id = "newUser" onSubmit = { createUser }>
@@ -77,13 +109,8 @@ const SignUp = (props) => {
                     <div className = "row mb-4">
                         <label className = "col-sm-5 col-form-label">Email: </label>
                         <div className="col-sm-7">
-                            <input type = "text" className="form-control" placeholder="lilyochs@yahoo.com" ref={register({
-    required: "Required",
-    pattern: {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: "invalid email address"
-    }
-    })} required onChange={ (e) => setEmail(e.target.value)}/> 
+                            <input type = "text" className="form-control" placeholder="lilyochs@yahoo.com" required value={email} onChange={ emailValidation }/>
+                            <div className={`message ${isValid ? 'success' : 'error'}`}>{error}</div>
                         </div>
                     </div>
                     <div className = "row mb-4">
