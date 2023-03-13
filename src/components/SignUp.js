@@ -41,12 +41,7 @@ const SignUp = (props) => {
             console.error("ERR_NETWORK: please check your connection before proceeding");
         }
         try { 
-            await fetch('./fetchData.js',{
-                headers : { 
-                'Content-Type': 'application/js',
-                'Accept': 'application/js'
-                }
-            })
+            await fetch('fetchData.js')
             .then(
                 // console.log(fetchData[0].occupations),
                 setOccupation(fetchData[0].occupations),
