@@ -151,7 +151,7 @@ const SignUp = (props) => {
                          */}
                         {
                             error ?
-                            <input className="btn btn-secondary" type="submit" value="Create User" disabled /> : 
+                            <input className="btn btn-secondary" type="button" value="Create User" /> : 
                             hasBeenSubmitted ?
                             <input className="btn btn-secondary" onClick={() => window.location.reload(true)} value="Add a New User"/> :
                             <input className="btn btn-secondary"  type="submit" value="Create User" />
