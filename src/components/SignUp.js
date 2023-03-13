@@ -143,10 +143,19 @@ const SignUp = (props) => {
                     </div>
                     <p className = "required">These fields are required</p>
                     <div className="">
-                        {
+                        {/* {
                             hasBeenSubmitted ? 
                             <input className="btn btn-secondary" onClick={() => window.location.reload(true)} value="Add a New User"/> :
                             <input className="btn btn-secondary" type="submit" value="Create User"/> 
+                        }
+                         */}
+                        {
+                            error ?
+                            <input className="btn btn-secondary" type="submit" value="Create User" disabled /> : 
+                            hasBeenSubmitted ?
+                            <input className="btn btn-secondary" onClick={() => window.location.reload(true)} value="Add a New User"/> :
+                            <input className="btn btn-secondary"  type="submit" value="Create User" />
+                            
                         }
                     </div>
                 </div>
