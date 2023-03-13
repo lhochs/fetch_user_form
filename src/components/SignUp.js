@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import fetchData from './fetchData';
+import fetchData from '../fetchData';
 
 export const FORM_INFO_URL = "https://frontend-take-home.fetchrewards.com/form"
 
@@ -41,7 +41,12 @@ const SignUp = (props) => {
             console.error("ERR_NETWORK: please check your connection before proceeding");
         }
         try { 
-            await fetch('fetchData.js')
+            await fetch('fetchData.js',{
+                headers : { 
+                'Content-Type': 'application/js',
+                'Accept': 'application/js'
+                }
+            })
             .then(
                 // console.log(fetchData[0].occupations),
                 setOccupation(fetchData[0].occupations),
