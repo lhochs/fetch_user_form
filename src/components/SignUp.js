@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import fetchData from '../fetchData';
+import fetchData from '../fetchData.js';
 
 export const FORM_INFO_URL = "https://frontend-take-home.fetchrewards.com/form"
 
