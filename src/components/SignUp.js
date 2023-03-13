@@ -41,7 +41,7 @@ const SignUp = (props) => {
             console.error("ERR_NETWORK: please check your connection before proceeding");
         }
         try { 
-            await fetch("../src/resources/fetchData.js")
+            await fetch("../resources/fetchData.js")
             .then(
                 // console.log(fetchData[0].occupations),
                 setOccupation(fetchData[0].occupations),
